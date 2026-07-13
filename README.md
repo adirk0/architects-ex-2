@@ -6,6 +6,7 @@ Read **`exercise2_customer_support_agent.md`** for the full exercise.
 
 | Path | What |
 |---|---|
+| `exercise2_customer_support_agent.md` | The exercise |
 | `reference_questions.json` | Dev Q&A set: questions labeled easy/medium/hard, ground-truth answers and file+page citations |
 | `contract.py` | The FastAPI `/ask` schema your system must expose (grading calls it) |
 | `baseline_runner.py` | Stage 1: run the questions through a bare model, answers JSONL out |
@@ -19,7 +20,7 @@ measure (relevance, hallucination rate, citation accuracy, latency).
 ## Quickstart
 
 ```bash
-cd starter && pip install -r requirements.txt
+pip install -r requirements.txt
 export NEBIUS_API_KEY=...               # the shared course Token Factory key
 export OPENAI_BASE_URL=https://api.tokenfactory.nebius.com/v1
 export OPENAI_API_KEY=$NEBIUS_API_KEY
@@ -28,7 +29,7 @@ export OPENAI_API_KEY=$NEBIUS_API_KEY
 python baseline_runner.py --model deepseek-ai/DeepSeek-V4-Pro
 ```
 
-The document corpus: `python starter/get_corpus.py` downloads the frozen snapshot
+The document corpus: `python get_corpus.py` downloads the frozen snapshot
 from the public HF dataset `orik/apex-ex2-harel-corpus` into a local `corpus/`
 dir (gitignored). Ground-truth answers are anchored to that snapshot, not the
 live site.
