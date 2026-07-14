@@ -4,7 +4,7 @@ NO retrieval, producing an answers file the eval harness can score.
 
     export OPENAI_API_KEY=...
     python baseline_runner.py --model deepseek-ai/DeepSeek-V4-Pro
-    # then score baseline_answers.jsonl with YOUR evaluation harness (Stage 1)
+    # then score answers.jsonl with YOUR evaluation harness (Stage 1)
 
 Calls go through litellm: a bare model name goes to OpenAI; set
 OPENAI_BASE_URL for any OpenAI-compatible endpoint (Token Factory, a local
@@ -19,6 +19,9 @@ import time
 
 import litellm
 
+from dotenv import load_dotenv
+load_dotenv()
+
 DEFAULT_SYSTEM = ("You are a customer-support assistant for Harel Insurance (Israel). "
                   "Answer the customer's question in the language it was asked. "
                   "If you cite a source, cite the exact document and page.")
@@ -29,7 +32,7 @@ def main():
     ap.add_argument("--questions", default="reference_questions.json")
     ap.add_argument("--model", default="deepseek-ai/DeepSeek-V4-Pro")
     ap.add_argument("--system-prompt", default=DEFAULT_SYSTEM)
-    ap.add_argument("--out", default="baseline_answers.jsonl")
+    ap.add_argument("--out", default="answers.jsonl")
     args = ap.parse_args()
 
     # routing: OPENAI_BASE_URL forces the openai/ route to that endpoint,

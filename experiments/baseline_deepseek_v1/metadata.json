@@ -1,0 +1,25 @@
+{
+  "experiment_name": "baseline_deepseek_v1",
+  "date": "2026-07-14",
+
+  "task": "bare_model_baseline",
+
+  "model": {
+    "name": "deepseek-ai/DeepSeek-V4-Pro",
+    "temperature": 0
+  },
+
+  "dataset": {
+    "name": "reference_questions.json",
+    "type": "development_questions"
+  },
+
+  "system": {
+    "retrieval": false,
+    "documents": false
+  },
+
+  "prompt_strategy": "default",
+
+  "description": "Baseline performance of bare DeepSeek model without retrieval."
+}
